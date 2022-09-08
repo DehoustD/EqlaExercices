@@ -1,4 +1,5 @@
 package ChapitreXAutre;
+
 import common.userInput;
 
 public class rappel {

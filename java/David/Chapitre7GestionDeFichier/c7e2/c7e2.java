@@ -1,3 +1,5 @@
+package Chapitre7GestionDeFichier.c7e2;
+
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;

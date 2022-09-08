@@ -1,3 +1,5 @@
+package Chapitre7GestionDeFichier.c7e1;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

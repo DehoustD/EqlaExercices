@@ -1,3 +1,5 @@
+package Chapitre7GestionDeFichier.c7e1;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
