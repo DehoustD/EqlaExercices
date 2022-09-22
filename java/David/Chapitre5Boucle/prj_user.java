@@ -42,4 +42,11 @@ public class prj_user {
         }
         return _responce;
     }
+
+    public static String AskString(String _question) {
+        System.out.println(_question);
+        String _responce = "";
+        _responce = input.nextLine();
+        return _responce;
+    }
 }
