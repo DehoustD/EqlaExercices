@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class parkattraction {
+public class C4e8_parkattraction {
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {

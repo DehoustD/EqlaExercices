@@ -1,7 +1,6 @@
-package HelloWorld;
 import java.util.Scanner;
 
-public class c4e3RpgClasse {
+public class c4e3RpgClasse_Copie {
 
     static Scanner input = new Scanner(System.in);
     

@@ -1,4 +1,3 @@
-package HelloWorld;
 public class C3e3Passions {
     public static void main(String[] args) {
            MyFunction("GameDev", "3d modeling", "Gaming");

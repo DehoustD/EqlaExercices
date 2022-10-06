@@ -1,5 +1,3 @@
-package HelloWorld;
-
 public class c3e5factorisation2 {
     public static void main(String[] args) {
         AdditionSoustraction(5,4);

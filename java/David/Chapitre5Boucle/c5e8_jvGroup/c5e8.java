@@ -1,8 +1,7 @@
-package HelloWorld;
+package c5e8_jvGroup;
 
-public class c4e4CNCB {
+public class c5e8 {
     public static void main(String[] args) {
         
     }
-    
 }

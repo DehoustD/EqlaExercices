@@ -1,5 +1,3 @@
-package HelloWorld;
-
 import java.util.Scanner;
 
 public class c4e1_QuelleHeure_BKP {
