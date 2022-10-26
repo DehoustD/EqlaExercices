@@ -10,5 +10,4 @@ Affichez tous les enregistrements de la table Classe avec les champs: Nom, Lieux
 */
 
 use BlinCode;
-SELECT Nom, Prenom, Email FROM Eleve;
-INTO OUTFILE 'toto.csv';
+SELECT Nom, Prenom, Email FROM Eleve INTO OUTFILE 'toto.csv';
