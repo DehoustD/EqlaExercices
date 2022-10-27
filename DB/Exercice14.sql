@@ -14,10 +14,5 @@ Ensuite, triez dans l'ordre inverse.
 USE BlindCode;
 
 SELECT Nom, Prenom, Naissance, Sexe FROM Eleve ORDER BY Nom, Prenom;
-SELECT Nom, Prenom, Naissance, Sexe FROM Eleve ORDER BY Nom, Prenom DESC;
-
-/*
-SELECT Commune FROM Localite WHERE CP = 4280;
-SELECT Commune FROM Localite WHERE CP = 4280 AND (Commune LIKE 'B%' OR Commune LIKE 'A%');
-SELECT Commune FROM Localite WHERE CP BETWEEN 4000 AND 4999;
-*/
+SELECT Nom, Prenom, Naissance, Sexe FROM Eleve ORDER BY Nom ASC, Prenom DESC;
+SELECT Nom, Prenom, Naissance, Sexe FROM Eleve ORDER BY Naissance ASC;
