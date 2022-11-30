@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class userInput {
 
-    static Scanner input = new Scanner(System.in);
+    static Scanner uInput = new Scanner(System.in);
 
     public static boolean AskYesOrNo(String _Question) {
         String _Responce = "";
         while (true) {
             System.out.print("\n" + _Question + " (o/n)\nVotre Réponse : ");
-            _Responce = input.nextLine().toUpperCase();
+            _Responce = uInput.nextLine().toUpperCase();
 
             switch (_Responce) {
                 case "O":
@@ -29,14 +29,39 @@ public class userInput {
         while (true) {
             System.out.print("\n" + _Question + "\nVotre Réponse : ");
 
-            if (input.hasNextFloat()) {
-                _Responce = input.nextFloat();
-                input.nextLine();
+            if (uInput.hasNextFloat()) {
+                _Responce = uInput.nextFloat();
+                uInput.nextLine();
                 return _Responce;
             } else {
                 System.err.println("Erreur, veuillez entrer un chiffre.");
-                input.nextLine();
+                uInput.nextLine();
             }
         }
     }
+
+    public static int AskInt(String _Question) {
+        int _Responce = 0;
+        while (true) {
+            System.out.print("\n" + _Question + "\nVotre Réponse : ");
+
+            if (uInput.hasNextFloat()) {
+                _Responce = uInput.nextInt();
+                uInput.nextLine();
+                return _Responce;
+            } else {
+                System.err.println("Erreur, veuillez entrer un chiffre.");
+                uInput.nextLine();
+            }
+        }
+    }
+
+    public static String AskString(String _Question) {
+
+        System.out.println("\n" + _Question + "\nVotre Réponse : ");
+    
+        return uInput.nextLine();
+    
+    }
+
 }
