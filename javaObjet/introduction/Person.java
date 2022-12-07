@@ -1,3 +1,5 @@
+// plug-in used : #region
+
 public class Person {
 
     // Propriétés
@@ -20,8 +22,7 @@ public class Person {
 
     }
 
-    // faire les getters et les setters, attention ! le poid doit etre ou en kg, ou en lbs
-
+    /* #region getter */
     public String GetName(){
         return name;
     }
@@ -47,7 +48,8 @@ public class Person {
     public float GetImc(){
         return imc;
     }
-
+    /* #endregion getter */
+    /* #region setter */
     public void SetName(String _name){
         name = _name;
     }
@@ -61,7 +63,8 @@ public class Person {
     public void SetWeight(float _weight){
         weight = _weight;
     }
-
+    /* #endregion setter */
+    
     private float IMCCalculation(float _height, float _weight) {
         return _weight / (float) Math.pow(_height, 2);
     }
@@ -83,6 +86,11 @@ public class Person {
         System.out.println(johnny.GetImc());
         johnny.SetHeight(1.95f);
         System.out.println(johnny.GetImc());
+        
+        System.out.println(sebastien.GetImc());
+        System.out.println(bruno.GetImc());
+        System.out.println(simon.GetImc());
+        System.out.println(david.GetImc());
 
     }
 
