@@ -68,7 +68,7 @@ public class Person {
     private float IMCCalculation(float _height, float _weight) {
         return _weight / (float) Math.pow(_height, 2);
     }
-
+/*
     public static void main(String[] args) {
 
         Person johnny = new Person("Johnny", 45, 1.82f, 80.0f);
@@ -93,5 +93,5 @@ public class Person {
         System.out.println(david.GetImc());
 
     }
-
+*/
 }

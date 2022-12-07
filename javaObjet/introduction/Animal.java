@@ -14,8 +14,7 @@ public class Animal {
 
     // constructeur
 
-    public Animal(String _name, String _sex, String _food, String _ecosystem, String _espece, int _age, int _sleepHours,
-            boolean _exotic, boolean _sterelized) {
+    public Animal(String _name, String _sex, String _food, String _ecosystem, String _espece, int _age, int _sleepHours, boolean _exotic, boolean _sterelized) {
         name = _name;
         sex = _sex;
         food = _food;
@@ -105,11 +104,11 @@ public class Animal {
 
     // methodes
 
-    private void Sleep() {
+    public void Sleep() {
         System.out.println("Votre " + espece + " a besoin de " + sleepHours + " heurs de sommeil.");
     }
 
-    private void Eat() {
+    public void Eat() {
         switch (sex) {
             case "m":
                 System.out.println("Il mange " + food + ".");
@@ -122,10 +121,11 @@ public class Animal {
                 break;
         }
     }
-
+/*
     public static void main(String[] args) {
         Animal cat = new Animal("Cat", "f", "viande", "terrestre", "chat", 6, 20, false, true);
         cat.Sleep();
         cat.Eat();
     }
+*/
 }
