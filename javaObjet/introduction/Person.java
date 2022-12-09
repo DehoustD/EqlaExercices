@@ -4,21 +4,23 @@ public class Person {
 
     // Propriétés
 
-    private String name;
-    private int age;
-    private float height;
-    private float weight;
-    private float imc;
+    protected String name;
+    protected int age;
+    protected float height;
+    protected float weight;
+    protected float imc;
+    protected Animal pet;
 
     // Méthodes > Constructeur
 
-    public Person(String _name, int _age, float _height, float _weight) {
+    public Person(String _name, int _age, float _height, float _weight, Animal _pet) {
 
         name = _name;
         age = _age;
         height = _height;
         weight = _weight;
         imc = IMCCalculation(_height, _weight);
+        pet = _pet;
 
     }
 
@@ -48,6 +50,9 @@ public class Person {
     public float GetImc(){
         return imc;
     }
+    public Animal GetAnimal(){
+        return pet;
+    }
     /* #endregion getter */
     /* #region setter */
     public void SetName(String _name){
@@ -63,35 +68,36 @@ public class Person {
     public void SetWeight(float _weight){
         weight = _weight;
     }
+    public void SetAnimal(Animal _pet){
+        pet = _pet;
+    }
     /* #endregion setter */
     
+    // overide magique.
+
+    @Override
+    public String toString(){
+        return name + " a " + age + ", il mesure " + height + " m et pèse " + weight + " kg, son imc est donc de " + GetImc() + " et il a un " + pet.GetEspece() + ".";
+    }
+
+    @Override
+    public boolean equals(Object _p) {
+        if (_p == null) {
+            return false;
+        }
+        if (_p.getClass() != getClass()) {
+            return false;
+        }
+        Person _person = (Person)_p;
+
+        if(name.equals(_person.name) && age == _person.age && height == _person.height && weight == _person.weight && pet.equals(_person.pet)){
+            return true;
+        }
+            return false;
+    }
+
+
     private float IMCCalculation(float _height, float _weight) {
         return _weight / (float) Math.pow(_height, 2);
     }
-/*
-    public static void main(String[] args) {
-
-        Person johnny = new Person("Johnny", 45, 1.82f, 80.0f);
-        Person sebastien = new Person("Sebastien", 40, 1.85f, 85.0f);
-        Person bruno = new Person("Bruno", 43, 1.75f, 80.0f);
-        Person simon = new Person("Simon", 25, 1.65f, 70.0f);
-        Person david = new Person("David", 34, 1.82f, 100.0f);
-
-        // System.out.println("Nom : " + johnny.name + ", age : " + johnny.age + ", taille : " + johnny.height + ", IMC : " + johnny.imc);
-        // System.out.println("Nom : " + sebastien.name + ", age : " + sebastien.age + ", taille : " + sebastien.height + ", IMC : " + sebastien.imc);
-        // System.out.println("Nom : " + bruno.name + ", age : " + bruno.age + ", taille : " + bruno.height + ", IMC : " + bruno.imc);
-        // System.out.println("Nom : " + simon.name + ", age : " + simon.age + ", taille : " + simon.height + ", IMC : " + simon.imc);
-        // System.out.println("Nom : " + david.name + ", age : " + david.age + ", taille : " + david.height + ", IMC : " + david.imc);
-
-        System.out.println(johnny.GetImc());
-        johnny.SetHeight(1.95f);
-        System.out.println(johnny.GetImc());
-        
-        System.out.println(sebastien.GetImc());
-        System.out.println(bruno.GetImc());
-        System.out.println(simon.GetImc());
-        System.out.println(david.GetImc());
-
-    }
-*/
 }

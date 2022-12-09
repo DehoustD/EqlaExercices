@@ -1,14 +1,30 @@
 public class Main {
 
+// teacher >child> person
+// - cursus
+// - salary
+// - studentArray
+// method
+// studentSuccesPercent (exemple : 50% des eleves ont réussis) 
+
 public static void main(String[] args) {
-    Person johnny = new Person("Johnny", 45, 1.82f, 80.0f);
-    Person sebastien = new Person("Sebastien", 40, 1.85f, 85.0f);
-    Person bruno = new Person("Bruno", 43, 1.75f, 80.0f);
-    Person simon = new Person("Simon", 25, 1.65f, 70.0f);
-    Person david = new Person("David", 34, 1.82f, 100.0f);
 
     Animal cat = new Animal("Cat", "f", "viande", "terrestre", "chat", 6, 20, false, true);
+    Animal cat2 = new Animal("Cat", "f", "viande", "terrestre", "chat", 6, 20, false, true);
+    Animal doggo = new Animal("Doggo", "m", "viande", "terrestre", "chien", 3, 10, false, true);
+    
+    Person johnny = new Person("Johnny", 45, 1.82f, 80.0f, doggo);
+    Person johnny2 = new Person("Johnny", 45, 1.82f, 80.0f, doggo);
 
+    Student sebastien = new Student("Sebastien", 40, 1.85f, 85.0f, cat2, 1, 10.0f, "java");
+    Student bruno = new Student("Bruno", 43, 1.75f, 80.0f, null, 2, 10.0f, "bdd");
+    Student simon = new Student("Simon", 25, 1.65f, 70.0f, cat, 3, 10.0f, "bdd");
+    Student david = new Student("David", 34, 1.82f, 100.0f, cat, 4, 10.0f, "java");
+
+
+    System.out.println(david.AverageWeightPerYear());
+
+/*
     System.out.println(johnny.GetImc());
     johnny.SetHeight(1.95f);
     System.out.println(johnny.GetImc());
@@ -17,11 +33,27 @@ public static void main(String[] args) {
     System.out.println(bruno.GetImc());
     System.out.println(simon.GetImc());
     System.out.println(david.GetImc());
+ */
 
-    cat.Sleep();
-    cat.Eat();
+//System.out.println(johnny.GetAnimal().toString());
+/*
+    if (david.GetAnimal().equals(sebastien.GetAnimal())) {
+        System.out.println("on a le même animal");
+    } else {
+        System.out.println("On a pas le même animal");
+    }
+*/
+/*
+if (johnny.equals(david)) {
+    System.out.println("pareil");
+} else {
+    System.out.println("pas pareil");
+}
+*/
+    //cat.Sleep();
+    //cat.Eat();
 
-    System.out.println(johnny.GetAge());
+    //System.out.println(johnny.GetAge());
 }
 
 }

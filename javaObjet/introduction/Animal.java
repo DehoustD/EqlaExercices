@@ -102,6 +102,29 @@ public class Animal {
         sterelized = _sterelized;
     }
 
+    // override magique
+
+    @Override
+    public String toString(){
+        return name + " est un " + espece + " de " + age + " ans, de sexe " + sex + ", il mange " + food + " et il vit dans " + ecosystem + ".";
+    }
+    @Override
+    public boolean equals(Object _a) {
+        if (_a == null) {
+            return false;
+        }
+        if (_a.getClass() != getClass()) {
+            return false;
+        }
+        Animal _animal = (Animal)_a;
+
+        if(name.equals(_animal.name) && sex.equals(_animal.sex) && espece.equals(_animal.espece) && age == _animal.age && food.equals(_animal.food) && ecosystem.equals(_animal.ecosystem) && sleepHours == _animal.sleepHours && sterelized == _animal.sterelized && exotic == _animal.exotic){
+            return true;
+        }
+            return false;
+    }
+
+
     // methodes
 
     public void Sleep() {
