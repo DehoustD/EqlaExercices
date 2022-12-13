@@ -72,9 +72,8 @@ public class Person {
         pet = _pet;
     }
     /* #endregion setter */
-    
-    // overide magique.
 
+//#region overide magique
     @Override
     public String toString(){
         return name + " a " + age + ", il mesure " + height + " m et pèse " + weight + " kg, son imc est donc de " + GetImc() + " et il a un " + pet.GetEspece() + ".";
@@ -95,7 +94,7 @@ public class Person {
         }
             return false;
     }
-
+//#endregion
 
     private float IMCCalculation(float _height, float _weight) {
         return _weight / (float) Math.pow(_height, 2);

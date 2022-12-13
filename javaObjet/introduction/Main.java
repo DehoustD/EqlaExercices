@@ -1,12 +1,5 @@
 public class Main {
 
-// teacher >child> person
-// - cursus
-// - salary
-// - studentArray
-// method
-// studentSuccesPercent (exemple : 50% des eleves ont réussis) 
-
 public static void main(String[] args) {
 
     Animal cat = new Animal("Cat", "f", "viande", "terrestre", "chat", 6, 20, false, true);
@@ -22,7 +15,22 @@ public static void main(String[] args) {
     Student david = new Student("David", 34, 1.82f, 100.0f, cat, 4, 10.0f, "java");
 
 
-    System.out.println(david.AverageWeightPerYear());
+    String[] tempStudentArray = {"damien", "Severine", "Alfred", "Anne"};
+    boolean[] tempStudentWhoSucceed = {true, false, false, true};
+
+    Teacher johnnyT = new Teacher("Johnny", 45, 1.82f, 80.0f, doggo, "DB", 50, tempStudentArray, tempStudentWhoSucceed);
+
+    //johnnyT.SetStudentArray(tempStudentArray);
+    //johnnyT.SetStudentWhoSucceed(tempStudentWhoSucceed);
+
+    johnnyT.StudentWhoSucceedPercent();
+    
+    for (int i = 0; i < johnnyT.GetStudentArray().length; i++) {
+        System.out.println(johnnyT.GetStudentArray()[i]);
+    }
+    for (int i = 0; i < johnnyT.GetStudentWhoSucceed().length; i++) {
+        System.out.println(johnnyT.GetStudentWhoSucceed()[i]);
+    }
 
 /*
     System.out.println(johnny.GetImc());
