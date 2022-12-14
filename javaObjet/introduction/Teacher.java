@@ -11,8 +11,8 @@ public class Teacher extends Person {
     private float salary;
     private Student[] students;
 
-    //private String[] studentArray;
-    //private boolean[] studentWhoSucceed;
+    // private String[] studentArray;
+    // private boolean[] studentWhoSucceed;
 
     public Teacher(String _name, int _age, float _height, float _weight, Animal _pet, String _cursus, float _salary, Student[] _students) {
         

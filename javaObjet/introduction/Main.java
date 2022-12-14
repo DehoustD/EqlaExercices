@@ -6,6 +6,8 @@ public static void main(String[] args) {
     Animal cat2 = new Animal("Cat", "f", "viande", "terrestre", "chat", 6, 20, false, true);
     Animal doggo = new Animal("Doggo", "m", "viande", "terrestre", "chien", 3, 10, false, true);
     
+    Reptile dangerNoodle = new Reptile("Danger Noodle", "f", "viande", "terrestre", "boa", 4, 6, true, false, true);
+
     Person johnny = new Person("Johnny", 45, 1.82f, 80.0f, doggo);
     Person johnny2 = new Person("Johnny", 45, 1.82f, 80.0f, doggo);
 
@@ -19,6 +21,7 @@ public static void main(String[] args) {
     Teacher johnnyT = new Teacher("Johnny", 45, 1.82f, 80.0f, doggo, "DB", 50, tempStudentArray);
 
     johnnyT.StudentWhoSucceedPercent();
+    dangerNoodle.TellIfSerpent();
 
 /*
     System.out.println(johnny.GetImc());
