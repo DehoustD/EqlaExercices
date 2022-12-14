@@ -1,5 +1,8 @@
 public class Animal {
 
+// animaux > insecte, poisson, oiseau, mamifere,...
+// creer des methodes specifique
+
     // Proprietes
 
     private String name;

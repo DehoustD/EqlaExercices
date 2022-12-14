@@ -9,28 +9,16 @@ public static void main(String[] args) {
     Person johnny = new Person("Johnny", 45, 1.82f, 80.0f, doggo);
     Person johnny2 = new Person("Johnny", 45, 1.82f, 80.0f, doggo);
 
-    Student sebastien = new Student("Sebastien", 40, 1.85f, 85.0f, cat2, 1, 10.0f, "java");
-    Student bruno = new Student("Bruno", 43, 1.75f, 80.0f, null, 2, 10.0f, "bdd");
+    Student sebastien = new Student("Sebastien", 40, 1.85f, 85.0f, cat2, 1, 15.0f, "java");
+    Student bruno = new Student("Bruno", 43, 1.75f, 80.0f, null, 2, 13.0f, "bdd");
     Student simon = new Student("Simon", 25, 1.65f, 70.0f, cat, 3, 10.0f, "bdd");
-    Student david = new Student("David", 34, 1.82f, 100.0f, cat, 4, 10.0f, "java");
+    Student david = new Student("David", 34, 1.82f, 100.0f, cat, 4, 8.0f, "java");
 
+    Student[] tempStudentArray = {sebastien, bruno, simon, david};
 
-    String[] tempStudentArray = {"damien", "Severine", "Alfred", "Anne"};
-    boolean[] tempStudentWhoSucceed = {true, false, false, true};
-
-    Teacher johnnyT = new Teacher("Johnny", 45, 1.82f, 80.0f, doggo, "DB", 50, tempStudentArray, tempStudentWhoSucceed);
-
-    //johnnyT.SetStudentArray(tempStudentArray);
-    //johnnyT.SetStudentWhoSucceed(tempStudentWhoSucceed);
+    Teacher johnnyT = new Teacher("Johnny", 45, 1.82f, 80.0f, doggo, "DB", 50, tempStudentArray);
 
     johnnyT.StudentWhoSucceedPercent();
-    
-    for (int i = 0; i < johnnyT.GetStudentArray().length; i++) {
-        System.out.println(johnnyT.GetStudentArray()[i]);
-    }
-    for (int i = 0; i < johnnyT.GetStudentWhoSucceed().length; i++) {
-        System.out.println(johnnyT.GetStudentWhoSucceed()[i]);
-    }
 
 /*
     System.out.println(johnny.GetImc());

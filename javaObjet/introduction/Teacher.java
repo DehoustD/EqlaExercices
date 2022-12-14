@@ -9,18 +9,19 @@ public class Teacher extends Person {
 
     private String cursus;
     private float salary;
-    private String[] studentArray;
-    private boolean[] studentWhoSucceed;
+    private Student[] students;
 
-    public Teacher(String _name, int _age, float _height, float _weight, Animal _pet, String _cursus, float _salary, String[] _studentArray, boolean[] _studentWhoSucceed) {
+    //private String[] studentArray;
+    //private boolean[] studentWhoSucceed;
+
+    public Teacher(String _name, int _age, float _height, float _weight, Animal _pet, String _cursus, float _salary, Student[] _students) {
         
         // on va chercher les propriété du parent.
         super(_name, _age, _height, _weight, _pet);
         // ----
         cursus = _cursus;
         salary = _salary;
-        studentArray = _studentArray;
-        studentWhoSucceed = _studentWhoSucceed;
+        students = _students;
     }
 
 //#region Getters
@@ -30,11 +31,8 @@ public class Teacher extends Person {
     public float GetSalary(){
         return salary;
     }
-    public String[] GetStudentArray(){
-        return studentArray;
-    }
-    public boolean[] GetStudentWhoSucceed(){
-        return studentWhoSucceed;
+    public Student[] GetStudents(){
+        return students;
     }
 //#endregion
 
@@ -45,29 +43,29 @@ public class Teacher extends Person {
     public void SetSalary(float _salary){
         salary = _salary;
     }
-    public void SetStudentArray(String _studentArray[]){
-        studentArray = _studentArray;
-    }
-    public void SetStudentWhoSucceed(boolean[] _studentWhoSucceed){
-        studentWhoSucceed = _studentWhoSucceed;
+    public void SetStudents(Student[] _students){
+        students = _students;
     }
 //#endregion
 
 // methods
 
+
 public void StudentWhoSucceedPercent(){
 
-    int _succes = 0;
+    float _succes = 0.0f;
     
-    for (int i = 0; i < studentArray.length; i++) {
-        if(studentWhoSucceed[i] = true){
+    for (int i = 0; i < students.length; i++) {
+        if(students[i].GetAverage() >= 10){
             _succes++;
         }
     }
 
     System.out.println(_succes + " succes");
 
-    System.out.println(_succes / studentArray.length * 100 + "%");
+    System.out.println(_succes + "/" + students.length + " * 100 = ");
+
+    System.out.println(_succes / (float)students.length * 100.0f + "%");
 
 }
 
