@@ -28,10 +28,10 @@ CREATE TABLE livre (
     langue VARCHAR(32) NOT NULL,
     annee_publication INT UNSIGNED NULL,
     nombre_pages INT UNSIGNED NULL,
-    id_theme INT UNSIGNED NOT NULL,
+    theme_id INT UNSIGNED NOT NULL,
     -- IdAuteur INT UNSIGNED NOT NULL,
-    CONSTRAINT PRIMARY KEY(id),
-    FOREIGN KEY(id_theme) REFERENCES theme(id)
+    PRIMARY KEY(id),
+    FOREIGN KEY(theme_id) REFERENCES theme(id)
 )\p;
 
 -- Un exemplaire correspond à 1 et 1 seul livre.
@@ -43,15 +43,17 @@ CREATE TABLE exemplaire (
     date_acquisition DATE NULL,
     etat VARCHAR(64) NULL,
     est_perdu BOOLEAN NOT NULL,
-    PRIMARY KEY(Id)
+    livre_id INT UNSIGNED NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (livre_id) REFERENCES livre(id)
 )\p;
 
 CREATE TABLE auteur_livre (
-    id_auteur INT UNSIGNED NOT NULL,
-    id_livre INT UNSIGNED NOT NULL,
-    PRIMARY KEY (id_auteur, id_livre),
-    FOREIGN KEY(id_auteur) REFERENCES auteur(id),
-    FOREIGN KEY(id_livre) REFERENCES livre(id)
+    auteur_id INT UNSIGNED NOT NULL,
+    livre_id INT UNSIGNED NOT NULL,
+    PRIMARY KEY (auteur_id, livre_id),
+    FOREIGN KEY (auteur_id) REFERENCES auteur(id),
+    FOREIGN KEY (livre_id) REFERENCES livre(id)
 )\p;
 
 -- Un lecteur a emprunté 0 ou plusieurs livres.
@@ -69,11 +71,11 @@ CREATE TABLE emprunt (
     date_debut DATE NOT NULL,
     date_fin DATE NOT NULL,
     rendu BOOLEAN NOT NULL,
-    id_lecteur INT UNSIGNED NOT NULL,
-    id_livre int UNSIGNED NOT NULL,
+    lecteur_id INT UNSIGNED NOT NULL,
+    livre_id int UNSIGNED NOT NULL,
     PRIMARY KEY(id),
-    FOREIGN KEY(id_lecteur) REFERENCES lecteur(id),
-    FOREIGN KEY(id_livre) REFERENCES livre(id)
+    FOREIGN KEY(lecteur_id) REFERENCES lecteur(id),
+    FOREIGN KEY(livre_id) REFERENCES livre(id)
 )\p;
 
 
@@ -87,17 +89,16 @@ VALUES ('Fauteuil', 'Daniel', '1975-04-22', 'FR'),
 ('Caulon', 'Fernand', '1980-05-11', 'BE'),
 ('Canne', 'Alice', '1985-02-12', 'BE')\p;
 
-INSERT INTO livre (titre, isbn, langue, annee_publication, nombre_pages, id_theme)
+INSERT INTO livre (titre, isbn, langue, annee_publication, nombre_pages, theme_id)
 VALUES ('Le Grand Bouquin', 112233, 'FR', 1960, 500, 1),
 ('Le pleind''pages', 221133, 'FR', 1998, 240, 2),
 ('The edgy lord dealer', 982486, 'EN', 2015, 69, 4),
 ('Des cables et des disques', 344355, 'FR', 2018, 200, 1),
 ('Osez DOS', 669754, 'FR', 2018, 350, 1)\p;
 
-INSERT INTO exemplaire (reference, rayon, date_acquisition, etat, est_perdu)
-VALUES (),
-()
-\p;
+INSERT INTO exemplaire (reference, rayon, date_acquisition, etat, est_perdu, livre_id)
+VALUES (555, 1, '2000-01-01', 'bon', 0, 1),
+(556, 1, '2000-01-01', 'bon', 0, 2)\p;
 
 INSERT INTO lecteur (nom, prenom, naissance)
 VALUES ('Delacroix', 'Gertrude', '1964-07-13'),
@@ -106,12 +107,12 @@ VALUES ('Delacroix', 'Gertrude', '1964-07-13'),
 ('Durif', 'Sylvestre', '1961-02-12'),
 ('Faure', 'Lina', '1990-01-19')\p;
 
-INSERT INTO emprunt (date_debut, date_fin, rendu, id_lecteur, id_livre)
+INSERT INTO emprunt (date_debut, date_fin, rendu, lecteur_id, livre_id)
 VALUES ('2022-01-01','2022-01-15', FALSE, 3, 1),
 ('2022-01-01','2022-01-15', FALSE, 1, 2),
 ('2022-01-01','2022-01-15', FALSE, 2, 3)\p;
 
-INSERT INTO auteur_livre (id_auteur, id_livre)
+INSERT INTO auteur_livre (auteur_id, livre_id)
 VALUES (1, 1),
 (2, 1),
 (3, 2),
