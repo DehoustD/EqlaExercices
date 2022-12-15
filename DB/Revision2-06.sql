@@ -28,12 +28,22 @@ CREATE TABLE livre (
     langue VARCHAR(32) NOT NULL,
     annee_publication INT UNSIGNED NULL,
     nombre_pages INT UNSIGNED NULL,
-    nombre_exemplaires INT UNSIGNED NULL,
-    date_achat DATE NULL,
     id_theme INT UNSIGNED NOT NULL,
     -- IdAuteur INT UNSIGNED NOT NULL,
     CONSTRAINT PRIMARY KEY(id),
     FOREIGN KEY(id_theme) REFERENCES theme(id)
+)\p;
+
+-- Un exemplaire correspond à 1 et 1 seul livre.
+-- Un exemplaire a été emprunté aucune fois ou plusieurs fois.
+CREATE TABLE exemplaire (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    reference INT NOT NULL,
+    rayon VARCHAR(64) NOT NULL,
+    date_acquisition DATE NULL,
+    etat VARCHAR(64) NULL,
+    est_perdu BOOLEAN NOT NULL,
+    PRIMARY KEY(Id)
 )\p;
 
 CREATE TABLE auteur_livre (
@@ -66,6 +76,7 @@ CREATE TABLE emprunt (
     FOREIGN KEY(id_livre) REFERENCES livre(id)
 )\p;
 
+
 INSERT INTO theme (libelle)
 VALUES('Programmation'),('Roman'),('Science-Fiction'),('Thriller'),('Policier')\p;
 
@@ -76,12 +87,17 @@ VALUES ('Fauteuil', 'Daniel', '1975-04-22', 'FR'),
 ('Caulon', 'Fernand', '1980-05-11', 'BE'),
 ('Canne', 'Alice', '1985-02-12', 'BE')\p;
 
-INSERT INTO livre (titre, isbn, langue, annee_publication, nombre_pages, nombre_exemplaires, date_achat, id_theme)
-VALUES ('Le Grand Bouquin', 112233, 'FR', 1960, 500, 359, '1961-01-01', 1),
-('Le pleind''pages', 221133, 'FR', 1998, 240, 120, '2013-10-05', 2),
-('The edgy lord dealer', 982486, 'EN', 2015, 69, 1800, '2013-06-05', 4),
-('Des cables et des disques', 344355, 'FR', 2018, 200, 760, '2019-07-21', 1),
-('Osez DOS', 669754, 'FR', 2018, 350, 1200, '2019-09-19', 1)\p;
+INSERT INTO livre (titre, isbn, langue, annee_publication, nombre_pages, id_theme)
+VALUES ('Le Grand Bouquin', 112233, 'FR', 1960, 500, 1),
+('Le pleind''pages', 221133, 'FR', 1998, 240, 2),
+('The edgy lord dealer', 982486, 'EN', 2015, 69, 4),
+('Des cables et des disques', 344355, 'FR', 2018, 200, 1),
+('Osez DOS', 669754, 'FR', 2018, 350, 1)\p;
+
+INSERT INTO exemplaire (reference, rayon, date_acquisition, etat, est_perdu)
+VALUES (),
+()
+\p;
 
 INSERT INTO lecteur (nom, prenom, naissance)
 VALUES ('Delacroix', 'Gertrude', '1964-07-13'),
