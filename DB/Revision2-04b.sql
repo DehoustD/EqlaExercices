@@ -102,58 +102,27 @@ VALUES (1, 1),
 (4, 3),
 (5, 4)\p;
 
--- SELECT * FROM Theme\p;
--- SELECT * FROM Auteur\p;
--- SELECT * FROM Livre\p;
--- SELECT * FROM Lecteur\p;
+SELECT *
+FROM Lecteur
+;
+-- Ajout de la colonne inscription pour les lecteurs.
+ALTER TABLE Lecteur
+ADD Inscription DATE NOT NULL DEFAULT '0000-00-00'
+;
+DESC Lecteur;
 
--- SELECT DateDebut, DateFin, Rendu, Lecteur.Nom AS ClientName
--- FROM Emprunt
--- INNER JOIN Lecteur ON Emprunt.IdLecteur = Lecteur.Id\p;
+-- Passer la date d'inscription sur NOT NULL pour forcer l'insertion d'une date.
+ALTER TABLE Lecteur
+MODIFY Inscription DATE NOT NULL;
 
--- SELECT * FROM Emprunt;
+-- Valeur précise pour l'id 1.
+UPDATE Lecteur
+SET Inscription = '2022-01-15'
+WHERE Id = 1
+;
 
-SELECT Titre, ISBN, Auteur.Nom
-FROM Livre
-INNER JOIN Auteur_Livre ON Auteur_Livre.IdLivre = Livre.Id
-INNER JOIN Auteur ON Auteur_Livre.IdAuteur = Auteur.Id
-\p;
+DESC Lecteur;
 
--- SELECT Titre, ISBN, Auteur.Nom
--- FROM Livre
--- INNER JOIN Auteur_Livre ON Auteur_Livre.IdLivre = Livre.Id
--- INNER JOIN Auteur ON Auteur_Livre.IdAuteur = Auteur.Id
--- WHERE Titre like '%Grand%'
--- \p;
-
-SELECT Nom, Prenom, Livre.Titre
-FROM Auteur
-INNER JOIN Auteur_Livre ON Auteur_Livre.IdAuteur = Auteur.Id
-INNER JOIN Livre ON Auteur_Livre.IdLivre = Livre.Id
-\p;
-
-/*
-
-
-++++++++++++++++
-+ Auteur_Livre +
-++++++++++++++++
-+ IdAuteur     +     nombre
-+ IdLivre      +    nombre
-++++++++++++++++
-
-++++++++++++++++
-+ Auteur       +
-++++++++++++++++
-+ Id           +     nombre
-++++++++++++++++
-
-
-++++++++++++++++
-+ Livre        +
-++++++++++++++++
-+ Id           +     nombre
-++++++++++++++++
-
-
-*/
+SELECT *
+FROM Lecteur
+;
