@@ -49,4 +49,18 @@ public class Oiseau extends Animal {
         return _tempsDeVol;
     }
 
+    public void Sleep(){
+        System.out.println("je ne dors pas en volant !");
+        super.Sleep();
+    }
+
+    public void Sleep(boolean _nocturnal) {
+        super.Sleep(_nocturnal);
+        if (_nocturnal) {
+            System.out.println("Je suis surement un hiboux.");
+        } else {
+            System.out.println("Je ne suis surement pas un hiboux.");
+        }
+    }
+
 }

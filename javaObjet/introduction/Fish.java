@@ -31,6 +31,7 @@ public class Fish extends Animal {
     }
 
     // Methodes
+
     public void DivingFish() {
         try {
             System.out.println("Le poisson plonge.");
@@ -40,6 +41,11 @@ public class Fish extends Animal {
             // TODO: handle exception
             System.out.println("erreur");
         }
+    }
+
+    public void Sleep(){
+        super.Sleep();
+        System.out.println(" Et le pichon y dort !");
     }
 
 }

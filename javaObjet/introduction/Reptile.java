@@ -32,5 +32,9 @@ public class Reptile extends Animal {
 
     }
 
+    public void Sleep(){
+        System.out.println("je dors en haut d'un arbre");
+    }
+
 
 }
