@@ -130,8 +130,20 @@ public class Animal {
 
     // methodes
 
-    public void Sleep() {
+    public void Sleep () {
         System.out.println("Votre " + espece + " a besoin de " + sleepHours + " heurs de sommeil.");
+    }
+
+    public void Sleep (int _bedTime) {
+        System.out.println("votre " + espece + " se reveillera à " + (_bedTime + sleepHours));
+    }
+
+    public void Sleep (boolean _nocturnal) {
+        if (_nocturnal) {
+            System.out.println("votre espece a besoin de " + sleepHours + "h de nuit.");
+        } else {
+            System.out.println("votre espece a besoin de " + sleepHours + "h de jour.");
+        }
     }
 
     public void Eat() {
