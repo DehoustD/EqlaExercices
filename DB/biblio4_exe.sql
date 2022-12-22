@@ -21,7 +21,7 @@ SELECT 'Afficher la liste de tous les livres avec leur titre et leur theme.' AS 
 SELECT titre, theme.theme
 FROM livre
 INNER JOIN theme ON livre.theme_id = theme.id
-WHERE livre.id <= 20
+LIMIT 20
 \p;
 
 SELECT 'Combien d''exemplaires sont empruntes en ce moment ?' AS Exercice_2;
@@ -57,11 +57,19 @@ LIMIT 1 -- limiter au premier résultat dans le tableau
 
 SELECT 'Quel est le livre qui a ete le plus emprunte ?' AS Exercice_4;
 
-SELECT id, titre, count(*) AS nombreEmprunt
-FROM livre
+-- SELECT exemplaire.id, count(*) AS nombreEmprunt
+-- FROM exemplaire
+-- INNER JOIN emprunt ON exemplaire.livre_id = emprunt.id
+-- GROUP BY exemplaire.id
+-- ORDER BY nombreEmprunt DESC
+-- LIMIT 20 -- limiter au premier résultat dans le tableau
+-- ;
 
-WHERE livre.id <= 20
-GROUP BY titre
-ORDER BY id ASC
-
+SELECT livre.id, livre.titre, count(*) AS nombreEmprunt
+FROM exemplaire
+INNER JOIN livre ON exemplaire.livre_id = livre.id
+INNER JOIN emprunt ON emprunt.exemplaire_id = exemplaire.id 
+GROUP BY livre.id
+ORDER BY nombreEmprunt DESC
+LIMIT 1
 ;
