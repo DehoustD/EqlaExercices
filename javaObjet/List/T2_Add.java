@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * T2_Add
+ * Cours sur les listes, l'ajout d'une entrée.
  */
 public class T2_Add {
 
@@ -17,9 +17,13 @@ public class T2_Add {
 
         // Fonctionne de la même manière pour les deux type de listes.
 
+        // Exemple pour la liste de String.
+
         myList.add("chat");
 
         myList.add("chien");
+
+        // Exemple pour la liste de int.
 
         myArrayList.add(5);
 
