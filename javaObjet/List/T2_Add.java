@@ -25,6 +25,8 @@ public class T2_Add {
 
         myArrayList.add(10);
 
+        // Exemple de print.
+
         Fonctions.PrintList(myList);
 
         Fonctions.PrintList(myArrayList);
