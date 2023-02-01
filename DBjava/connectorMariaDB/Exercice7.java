@@ -2,33 +2,34 @@ import java.sql.*;
 
 public class Exercice7 {
     public static void main(String[] args) {
-        
-        DisplayAuteur(2);
+
+        Common();
 
     }
 
-    private static void DisplayThemes(){
+    private static void Common() {
 
         try {
             // Chargement du pilote JDBC pour MySQL
-            //Class.forName("com.mysql.cj.jdbc.Driver");
+            // Class.forName("com.mysql.cj.jdbc.Driver");
             Class.forName("org.mariadb.jdbc.Driver");
-            
+
             // Etablissement de la connexion
-            Connection con = DriverManager.getConnection("jdbc:mariadb://localhost:3306/biblio4_prof", "new_user", "password1");
-            
+            Connection con = DriverManager.getConnection("jdbc:mariadb://localhost:3306/biblio4_prof", "new_user",
+                    "password1");
+
             // Création d'un objet Statement pour exécuter une requête de lecture
             Statement stmt = con.createStatement();
 
-            // Exécution d'une requête de lecture
-            // et récupération du résultat dans un objet ResultSet
-            String query = "SELECT * FROM theme";
-            ResultSet rs = stmt.executeQuery(query);
+            DisplayThemes(stmt);
+
+            System.out.println("");
             
-            // Parcours du résultat
-            while (rs.next()) {
-                System.out.println(rs.getString("id") + "\t\t" + rs.getString("theme"));
-            }
+            DisplayAuteurs(stmt);
+
+            System.out.println("");
+
+            DisplayAuteur(stmt, 2);
 
             // Fermeture de la connexion
             con.close();
@@ -38,76 +39,54 @@ public class Exercice7 {
 
     }
 
-    private static void DisplayAuteurs(){
+    private static void DisplayThemes(Statement _stmt) throws SQLException {
 
-        try {
-            // Chargement du pilote JDBC pour MySQL
-            //Class.forName("com.mysql.cj.jdbc.Driver");
-            Class.forName("org.mariadb.jdbc.Driver");
-            
-            // Etablissement de la connexion
-            Connection con = DriverManager.getConnection("jdbc:mariadb://localhost:3306/biblio4_prof", "new_user", "password1");
-            
-            // Création d'un objet Statement pour exécuter une requête de lecture
-            Statement stmt = con.createStatement();
+        // Exécution d'une requête de lecture
+        // et récupération du résultat dans un objet ResultSet
+        String query = "SELECT * FROM theme";
+        ResultSet rs = _stmt.executeQuery(query);
 
-            // Exécution d'une requête de lecture
-            // et récupération du résultat dans un objet ResultSet
-            String query = "SELECT * FROM auteur";
-            ResultSet rs = stmt.executeQuery(query);
-            
-            // Parcours du résultat
-            while (rs.next()) {
-                System.out.println(
-                    rs.getString("id") + "\t\t" +
-                    rs.getString("nom") + "\t\t" +
-                    rs.getString("prenom") + "\t\t" +
-                    rs.getString("date_naissance") + "\t\t" +
-                    rs.getString("nationalite")                    
-                    );
-            }
-
-            // Fermeture de la connexion
-            con.close();
-        } catch (Exception e) {
-            System.out.println(e);
+        // Parcours du résultat
+        while (rs.next()) {
+            System.out.println(rs.getString("id") + "\t\t" + rs.getString("theme"));
         }
 
     }
 
-    private static void DisplayAuteur(int _id){
+    private static void DisplayAuteurs(Statement _stmt) throws SQLException {
 
-        try {
-            // Chargement du pilote JDBC pour MySQL
-            //Class.forName("com.mysql.cj.jdbc.Driver");
-            Class.forName("org.mariadb.jdbc.Driver");
-            
-            // Etablissement de la connexion
-            Connection con = DriverManager.getConnection("jdbc:mariadb://localhost:3306/biblio4_prof", "new_user", "password1");
-            
-            // Création d'un objet Statement pour exécuter une requête de lecture
-            Statement stmt = con.createStatement();
+        // Exécution d'une requête de lecture
+        // et récupération du résultat dans un objet ResultSet
+        String query = "SELECT * FROM auteur WHERE id<=10";
+        ResultSet rs = _stmt.executeQuery(query);
 
-            // Exécution d'une requête de lecture
-            // et récupération du résultat dans un objet ResultSet
-            String query = "SELECT * FROM auteur WHERE id=" + _id;
-            ResultSet rs = stmt.executeQuery(query);
-            
-            // Parcours du résultat
-            while (rs.next()) {
-                System.out.println(
-                    rs.getString("id") + "\t\t" +
-                    rs.getString("nom") + "\t\t" +
-                    rs.getString("prenom") + "\t\t" +
-                    rs.getString("date_naissance") + "\t\t" +
-                    rs.getString("nationalite")                    
-                    );
-            }
+        // Parcours du résultat
+        while (rs.next()) {
+            System.out.println(
+                rs.getString("id") + "\t\t" +
+                rs.getString("nom") + "\t\t" +
+                rs.getString("prenom") + "\t\t" +
+                rs.getString("date_naissance") + "\t\t" +
+                rs.getString("nationalite"));
+        }
 
-            // Fermeture de la connexion
-            con.close();
-        } catch (Exception e) {
-            System.out.println(e);
+    }
+
+    private static void DisplayAuteur(Statement _stmt, int _id) throws SQLException {
+
+        // Exécution d'une requête de lecture
+        // et récupération du résultat dans un objet ResultSet
+        String query = "SELECT * FROM auteur WHERE id=" + _id;
+        ResultSet rs = _stmt.executeQuery(query);
+
+        // Parcours du résultat
+        while (rs.next()) {
+            System.out.println(
+                rs.getString("id") + "\t\t" +
+                rs.getString("nom") + "\t\t" +
+                rs.getString("prenom") + "\t\t" +
+                rs.getString("date_naissance") + "\t\t" +
+                rs.getString("nationalite"));
         }
 
     }
