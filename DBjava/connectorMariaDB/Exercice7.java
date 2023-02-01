@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class Exercice6 {
+public class Exercice7 {
     public static void main(String[] args) {
         
         DisplayAuteur(2);
