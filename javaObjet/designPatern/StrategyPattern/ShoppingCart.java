@@ -31,4 +31,9 @@ public class ShoppingCart {
         return sum;
     }
 
+    public void Pay(PaymentStrategy _PaymentMethod){
+        int _amount = CalculateTotal();
+        _PaymentMethod.Pay(_amount);
+    }
+
 }
