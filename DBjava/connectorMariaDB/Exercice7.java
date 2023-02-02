@@ -12,7 +12,7 @@ public class Exercice7 {
         try {
             // Chargement du pilote JDBC pour MySQL
             // Class.forName("com.mysql.cj.jdbc.Driver");
-            Class.forName("org.mariadb.jdbc.Driver");
+            //Class.forName("org.mariadb.jdbc.Driver");
 
             // Etablissement de la connexion
             Connection con = DriverManager.getConnection("jdbc:mariadb://localhost:3306/biblio4_prof", "new_user",
@@ -57,7 +57,7 @@ public class Exercice7 {
 
         // Exécution d'une requête de lecture
         // et récupération du résultat dans un objet ResultSet
-        String query = "SELECT * FROM auteur WHERE id<=10";
+        String query = "SELECT * FROM auteur LIMIT 10";
         ResultSet rs = _stmt.executeQuery(query);
 
         // Parcours du résultat
