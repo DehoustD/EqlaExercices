@@ -4,7 +4,7 @@ import java.util.*;
  * Cours sur les listes, le triage par ordre alphabétique et son inverse.
  */
 
-public class T4_Sort {
+public class T5_Sort {
 
     public static void main(String[] args) {
 
