@@ -35,7 +35,7 @@ public class CreditCardStrategy implements PaymentStrategy {
     @Override
     public void Pay(int _amount) {
 
-        System.out.println(_amount + "€ ont été payé avec une carte de crédit");
+        System.out.println(_amount + " euros ont été payé avec une carte de crédit");
 
     }
 
