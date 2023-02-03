@@ -16,8 +16,6 @@ public class Main {
         obs2.SetSubject(topic);
         obs3.SetSubject(topic);
 
-        obs1.Update();
-
         topic.PostMessage("lol");
 
     }
