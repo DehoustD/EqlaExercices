@@ -14,7 +14,8 @@ public class MyTopic implements ISubject {
     private boolean hasChanged;
     /**
      * MUTEX signifie MUTual EXclusion.
-     * Sert à faire en sorte qu'une ressource ne soit pas accedé par deux éléments en même temps.
+     * Sert à faire en sorte qu'une ressource ne soit pas accedé par deux éléments
+     * en même temps.
      */
     private final Object MUTEX = new Object(); // Les constatntes s'écrivent toujours en CapsLock.
 
@@ -32,13 +33,13 @@ public class MyTopic implements ISubject {
     public void Register(IObserver _obs) {
 
         if (_obs == null) throw new NullPointerException("L'observeur est null.");
-        
-        synchronized(MUTEX){
+
+        synchronized (MUTEX) {
 
             if (!Observers.contains(_obs)) {
 
                 Observers.add(_obs);
-                
+
             }
 
         }
@@ -47,20 +48,58 @@ public class MyTopic implements ISubject {
 
     @Override
     public void UnRegister(IObserver _obs) {
-        // TODO Auto-generated method stub
+
+        synchronized (MUTEX) {
+
+            Observers.remove(_obs);
+
+        }
 
     }
 
     @Override
     public void NotifyObservers() {
-        // TODO Auto-generated method stub
+
+        List<IObserver> _obsLocal = null;
+
+        synchronized (MUTEX) {
+
+            if (!hasChanged) {
+
+                return;
+                
+            }
+
+            _obsLocal = new ArrayList<IObserver>(Observers);
+
+            hasChanged = false;
+
+        }
+
+        for (IObserver _obs : _obsLocal) {
+
+            _obs.Update();
+            
+        }
 
     }
 
     @Override
     public Object GetUpdate(IObserver _obs) {
-        // TODO Auto-generated method stub
-        return null;
+
+        return message;
+    
+    }
+
+    public void PostMessage(String _message){
+
+        System.out.println("Le message posté dans ce topic est : \n" + _message);
+
+        message = _message;
+        hasChanged = true;
+
+        NotifyObservers();
+
     }
 
 }
