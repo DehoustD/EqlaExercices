@@ -92,7 +92,7 @@ public class Exercice10 {
         // Parcours du résultat
         while (rs.next()) {
             System.out.println(
-                rs.getString("livre.titre") + "\t\t\t" +
+                rs.getString("livre.titre") + "\t\t" +
                 rs.getString("auteur.prenom") + "\t\t" +
                 rs.getString("auteur.nom") + "\t\t" +
                 rs.getString("etat") + "\t\t" +
