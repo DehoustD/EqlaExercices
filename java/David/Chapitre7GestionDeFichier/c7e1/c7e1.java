@@ -1,5 +1,3 @@
-package Chapitre7GestionDeFichier.c7e1;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,6 +12,7 @@ public class c7e1 {
         String line = "";
 
         while (line != null) {
+
             try {
                 line = reader.readLine();
                 if (line != null) {
@@ -22,7 +21,10 @@ public class c7e1 {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            myFileReader.close();
+            
         }
+
+        myFileReader.close();
+
     }
 }
