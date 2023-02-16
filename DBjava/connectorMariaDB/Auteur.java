@@ -2,13 +2,17 @@ import java.sql.*;
 
 public class Auteur {
 
+    // Porperties.
+
     private Integer id = null;
     private String nom = null;
     private String prenom = null;
-    private Integer birthday = null;
+    private Date birthday = null;
     private String nationality = null;
 
-    public Auteur(Integer _id, String _nom, String _prenom, Integer _birthday, String _nationality) {
+    // Constructors.
+
+    public Auteur(Integer _id, String _nom, String _prenom, Date _birthday, String _nationality) {
         id = _id;
         nom = _nom;
         prenom = _prenom;
@@ -30,7 +34,7 @@ public class Auteur {
         return prenom;
     }
 
-    public Integer getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
@@ -54,7 +58,7 @@ public class Auteur {
         this.prenom = prenom;
     }
 
-    public void setBirthday(Integer birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
@@ -64,6 +68,7 @@ public class Auteur {
 
     //#endregion Setters
 
+    //#region Overides
 
     @Override
     public String toString() {
@@ -76,14 +81,16 @@ public class Auteur {
         ;
     }
 
-    // Methods.
+    //#endregion Overides
 
-
+    //#region Methods.
 
     public void updateAuteur (Auteur _auteur){
 
-
+        
 
     }
+
+    //#endregion Methods.
 
 }
